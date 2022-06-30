@@ -33,7 +33,7 @@ var app = new Vue({
                     console.log("Hola");
                     this.photo = element.picture.large;
                     this.updateLocalStorage();
-                    this.watch = 1
+                    this.watch = 0
                 } 
               });
         },

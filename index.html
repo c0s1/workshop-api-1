@@ -22,7 +22,7 @@
 
   <div id="app">
     <!-- LOGIN -->
-    <div class="container" v-if="watch==1">
+    <br><br><br><div class="container" v-if="watch==0">
       <form class="form mt-4">
         <div class="row mb-3">
           <label for="inputEmail3" class="col-sm-2 col-form-label">Usuario</label>
@@ -75,23 +75,25 @@
                 <tr>
                   <th class="border">Nombre completo</th>
                   <th class="border">Usuario</th>
+                  <th class="border">Contraseña</th>
                   <th class="border">Ciudad</th>
                   <th class="border">Email</th>
                   <th class="border">Opciones</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td class="border"></td>
-                  <td class="border"></td>
-                  <td class="border"></td>
-                  <td class="border"></td>
+              <tbody v-if="users.length">
+                <tr v-for="item in users">
+                  <td class="border">{{item.name.first}} {{item.name.last}}</td>
+                  <td class="border">{{item.login.username}}</td>
+                  <td class="border">{{item.login.password}}</td>
+                  <td class="border">{{item.location.city}}</td>
+                  <td class="border">{{item.email}}</td>
                   <td class="border"><button class="btn btn-danger" type="button">Editar</button>
                     <button class="btn btn-danger" type="button">Eliminar</button>
                   </td>
                 </tr>
               </tbody>
-              <tbody>
+              <tbody v-else>
                 <tr>
                   <td colspan="3">no existe usuarios</td>
                 </tr>
