@@ -13,44 +13,57 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
     integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
-    <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="style.css" rel="stylesheet" type="text/css">
   <title>Login</title>
 </head>
 
 <body>
 
 
-  <div id="app" class="container">
+  <div id="app">
     <!-- LOGIN -->
-    <form class="form mt-4">
-      <div class="row mb-3">
-        <label for="inputEmail3" class="col-sm-2 col-form-label">Usuario</label>
-        <div class="col-sm-10">
-          <input v-model="username" type="text" class="form-control" id="inputEmail3">
+    <div class="container" v-if="watch==0">
+      <form class="form mt-4" >
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Usuario</label>
+          <div class="col-sm-10">
+            <input v-model="username" type="text" class="form-control" id="inputEmail3">
+          </div>
         </div>
-      </div>
-      <div class="row mb-3">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Contraseña</label>
-        <div class="col-sm-10">
-          <input v-model="password" type="password" class="form-control" id="inputPassword3">
+        <div class="row mb-3">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">Contraseña</label>
+          <div class="col-sm-10">
+            <input v-model="password" type="password" class="form-control" id="inputPassword3">
+          </div>
         </div>
-      </div>      
-    </form>
-    <button @click="login" type="submit" class="btn btn-primary">Ingresar</button>
-    <!-- /LOGIN -->
-
-    <div class="container-fluid mt-4" v-if="watch==1">
-      <div class="row">
-        <div class="col col-md-6 col-lg-3 col mb-4">
-          <h5>Hola {{username}}</h5>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-md-6 col-lg-3 col mb-4">
-          <img :src="photo" class="card-img-top" alt="img" style="height: 150px; width: 150px;">
-        </div>
-      </div>
+      </form>
+      <button @click="login" type="submit" class="btn btn-primary">Ingresar</button>
     </div>
+      <!-- /LOGIN -->
+
+      <!-- PAGE -->
+      <div class="container" v-if="watch==1">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <img :src="photo" alt="" width="30" height="24" class="d-inline-block align-text-top">
+              Hola {{username}}
+            </a>
+          </div>
+        </nav>
+        <!-- <div class="row">
+          <div class="col col-md-6 col-lg-3 col mb-4">
+            <h5>Hola {{username}}</h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-md-6 col-lg-3 col mb-4">
+            <img :src="photo" class="card-img-top" alt="img" style="height: 150px; width: 150px;">
+          </div>
+        </div> -->
+      </div>
+      <!-- /PAGE -->
+    
   </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.0-alpha.4/vue.js "></script>

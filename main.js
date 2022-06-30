@@ -23,23 +23,26 @@ var app = new Vue({
                 
                 this.updateLocalStorage();
         },
+        login(){
+            if(this.username == "" && this.password) {
+                alert("Campos vacíos");
+            }
+            this.users.forEach((element) => {
+                // console.log(`${element['login']['password']}`)
+                if (element.login.username == this.username  && element.login.password == this.password) {
+                    console.log("Hola");
+                    this.photo = element.picture.large;
+                    this.updateLocalStorage();
+                    this.watch = 1
+                } 
+              });
+        },
         updateLocalStorage(){
             localStorage.setItem('users', JSON.stringify(this.users));
         },
-        login(){           
-            this.users.forEach((element) => {
-                console.log(`${element['login']['password']}`)
-                if (element.login.username == this.username  && element.login.password == this.password) {
-                    console.log("Hola");
-                    this.photo = element.picture.large
-                    this.watch = 1
-                }
-              });                
-        }
     },
     mounted() {
         this.listUsers();
-        this.login();
     },
     computed: {},
 });
