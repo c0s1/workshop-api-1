@@ -10,7 +10,7 @@ var app = new Vue({
     },
     methods: {
         async listUsers() {
-            url = "https://randomuser.me/api/?results=10";
+            url = "https://randomuser.me/api/?results=5";
             await fetch(url)
                 .then((response) => response.json())
                 .then((data) => this.arrayData = data);
